@@ -11,7 +11,7 @@ from moku.instruments import Datalogger
 i = Datalogger('[fe80::7269:79ff:feb0:a1c%10]', force_connect=True)
    
 try:
-    # Set the sample rate 
+    # Set the sample rate from 10 to 10e6 Hz
     i.set_samplerate(10e3)
 
     # Set the duration time of data stream in seconds
@@ -37,7 +37,7 @@ try:
             line1.set_ydata(data['ch1'])
             line1.set_xdata(data['time'])
             fig.canvas.draw()
-            plt.pause(0.001) # Wait for a while before the next update
+            plt.pause(0.1) # Wait for a while before the next update
 
 except Exception as e:
     i.stop_streaming()
