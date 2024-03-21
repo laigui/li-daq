@@ -1,7 +1,7 @@
 # Liquid Instrument Datalogger streaming
 #
 # This example demonstrates use of the Datalogger instrument to
-# stream time-series voltage data and plot it using matplotlib
+# stream time-series voltage data and plot it using matplotlib.
 #
 import matplotlib.pyplot as plt
 
@@ -30,6 +30,8 @@ try:
         # get the chunk of streamed data
         data = i.get_stream_data()
         if data:
+            # Print out the data
+            #print(data['time'], data['ch1'], data['ch2'], data['ch3'], data['ch4'])
             plt.xlim([data['time'][0], data['time'][-1]])
             # Update the plot
             line1.set_ydata(data['ch1'])
